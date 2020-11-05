@@ -36,7 +36,7 @@ public with sharing class AccountController {
 
     }
     
-    @AuraEnabled
+    @AuraEnabled(Cacheable=true)
     public static List<String> getFieldName(){
         List<String> fieldSet = new List<String>();
         try {
