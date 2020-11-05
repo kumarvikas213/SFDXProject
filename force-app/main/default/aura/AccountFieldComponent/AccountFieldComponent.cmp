@@ -1,0 +1,14 @@
+<aura:component controller="AccountController">
+
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"></aura:handler>
+    <aura:attribute name="accountListChild" type="sObject"></aura:attribute>
+    <aura:attribute name="fieldList" type="List" ></aura:attribute>
+
+    <!-- Display Dynamic List of Fields with values from fieldset via Apex Controller -->
+    <lightning:card title="Account Dynamic Fields creation">
+        <div >
+            <p class="slds-p-horizontal_small"></p>
+            {!v.body}
+            </div>
+        </lightning:card>
+</aura:component>	

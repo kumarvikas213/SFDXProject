@@ -1,0 +1,7 @@
+<aura:component >
+
+    <aura:attribute name="fieldSet" type="String"></aura:attribute>
+    
+        <lightning:outputField fieldName="{!v.fieldSet}"></lightning:outputField>
+    
+</aura:component>	

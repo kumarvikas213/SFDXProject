@@ -1,0 +1,59 @@
+<aura:component implements="flexipage:availableForAllPageTypes, force:hasRecordId" controller="AccountController" access="global">
+
+    
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"></aura:handler>
+    <aura:attribute name="accountList" type="sObject"></aura:attribute>
+    <aura:attribute name="parentFieldList" type="List" ></aura:attribute>
+    <aura:attribute name="check" type="boolean" default="false"></aura:attribute>
+       
+    <aura:if isTrue="{!v.check}" >   
+
+             <!-- To Fetch Account sObject from Apex Controller we use this approach-->
+        <lightning:card title="Static fieldset with RecordForm"> 
+            <lightning:recordViewForm recordId="{!v.accountList.Id}" objectApiName="Account">
+                    <div class="slds-grid">
+                        <div class="slds-col slds-size_1-of-2">
+                         <lightning:outputField fieldName="Name"></lightning:outputField>
+                         <lightning:outputField fieldName="AccountNumber"></lightning:outputField>
+                         <lightning:outputField fieldName="Industry"></lightning:outputField>
+                         <lightning:outputField fieldName="Description"></lightning:outputField>
+                        </div>
+                        <div class="slds-col slds-size_1-of-2">
+                            <lightning:outputField fieldName="Website"></lightning:outputField>
+                            <lightning:outputField fieldName="AnnualRevenue"></lightning:outputField>
+                            <lightning:outputField fieldName="Website"></lightning:outputField>
+                            <lightning:outputField fieldName="Phone"></lightning:outputField> 
+                        </div>
+                    </div>   
+            </lightning:recordViewForm>
+        </lightning:card>
+
+            <!-- To Fetch Account List Iteration from Apex Controller we use this approach-->
+
+           <!-- <aura:iteration items="{!v.accountList}" var="account">
+                <lightning:recordViewForm recordId="{!account.Id}" objectApiName="Account"> 
+                    <lightning:outputField fieldName="Name"></lightning:outputField>
+                    <lightning:outputField fieldName="Website"></lightning:outputField>
+                    <lightning:outputField fieldName="AccountNumber"></lightning:outputField>
+                    <lightning:outputField fieldName="Industry"></lightning:outputField>
+                    <lightning:outputField fieldName="Description"></lightning:outputField>
+                    <lightning:outputField fieldName="AnnualRevenue"></lightning:outputField>
+                    <lightning:outputField fieldName="Website"></lightning:outputField>
+                    <lightning:outputField fieldName="Phone"></lightning:outputField> 
+                </lightning:recordViewForm>
+                </aura:iteration>   -->      
+
+        <lightning:card title="Dynamic FieldSet using RecordForm">
+            <lightning:recordViewForm recordId="{!v.accountList.Id}" objectApiName="Account">
+            <aura:iteration items="{!v.parentFieldList}" var="fields">
+                <c:AccountChild fieldSet="{#fields}"></c:AccountChild>
+            </aura:iteration>
+        </lightning:recordViewForm>
+        </lightning:card>
+
+    <c:AccountFieldComponent accountListChild="{#v.accountList}" fieldList="{!v.parentFieldList}"></c:AccountFieldComponent>
+
+
+</aura:if>
+    
+</aura:component>	
