@@ -19,7 +19,7 @@
                          <lightning:outputField fieldName="Description"></lightning:outputField>
                         </div>
                         <div class="slds-col slds-size_1-of-2">
-                            <lightning:outputField fieldName="Website"></lightning:outputField>
+                            
                             <lightning:outputField fieldName="AnnualRevenue"></lightning:outputField>
                             <lightning:outputField fieldName="Website"></lightning:outputField>
                             <lightning:outputField fieldName="Phone"></lightning:outputField> 
@@ -28,7 +28,7 @@
             </lightning:recordViewForm>
         </lightning:card>
 
-            <!-- To Fetch Account List Iteration from Apex Controller we use this approach-->
+            <!-- To Fetch Account Record from Apex Controller single Column Layout-->
 
            <!-- <aura:iteration items="{!v.accountList}" var="account">
                 <lightning:recordViewForm recordId="{!account.Id}" objectApiName="Account"> 
@@ -41,18 +41,28 @@
                     <lightning:outputField fieldName="Website"></lightning:outputField>
                     <lightning:outputField fieldName="Phone"></lightning:outputField> 
                 </lightning:recordViewForm>
-                </aura:iteration>   -->      
+                </aura:iteration>  -->      
 
         <lightning:card title="Dynamic FieldSet using RecordForm">
+            <!--Two Column Page Layout Record Form Using Aura Component -->
             <lightning:recordViewForm recordId="{!v.accountList.Id}" objectApiName="Account">
-            <aura:iteration items="{!v.parentFieldList}" var="fields">
-                <c:AccountChild fieldSet="{#fields}"></c:AccountChild>
-            </aura:iteration>
+                <lightning:layout horizontalAlign="space" verticalAlign="center" multipleRows="true">
+                    <aura:iteration items="{!v.parentFieldList}" var="fields">
+                        <lightning:layoutItem flexibility="no-flex" alignmentBump="right" size="12" smallDeviceSize="6" mediumDeviceSize="6" largeDeviceSize="6">
+                            <c:AccountChild fieldSet="{#fields}"></c:AccountChild>
+                        </lightning:layoutItem>
+                    </aura:iteration>
+                </lightning:layout>
+                 <!--One Column Page Layout Record Form Using Aura Component -->
+                <!--  <aura:iteration items="{!v.parentFieldList}" var="fields">
+                        <c:AccountChild fieldSet="{#fields}"></c:AccountChild>
+                        </aura:iteration> -->
         </lightning:recordViewForm>
         </lightning:card>
 
     <c:AccountFieldComponent accountListChild="{#v.accountList}" fieldList="{!v.parentFieldList}"></c:AccountFieldComponent>
 
+   
 
 </aura:if>
     
