@@ -1,0 +1,43 @@
+<template>
+    <lightning-card title="Account without DataTable">
+            <div>
+                <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-table_col-bordered slds-table_striped">
+                    <thead>
+                        <tr>
+                    <template for:each={fields} for:item="field">
+                        <th key={field}> {field} </th>
+                    </template>
+                </tr>
+            </thead>
+            <tbody>
+                    <template for:each={accounts} for:item="account">
+                        <tr key={account.id} >
+                                <td >
+                                    {account.Name}
+                                </td>
+                                <td>
+                                    {account.AccountNumber}
+                                </td>    
+                                <td >
+                                    {account.Industry} 
+                                 </td>
+                                 <td>
+                                     {account.Description}
+                                 </td>   
+                                 <td >
+                                    {account.AnnualRevenue} 
+                                 </td>
+                                 <td>
+                                     {account.Website}
+                                 </td>
+                                 <td>
+                                    {account.Phone}
+                                </td>                                 
+                            </tr>
+                    </template>
+                </tbody>
+                </table>
+
+            </div>
+    </lightning-card>
+</template>

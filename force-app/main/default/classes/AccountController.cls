@@ -51,4 +51,34 @@ public with sharing class AccountController {
         }
         return fieldSet;
     }
+
+
+    @AuraEnabled(Cacheable=true)
+    public static List<sObject> getAccounts() 
+    {
+    	try
+    	{
+        	String query = 'SELECT ';
+
+        	for(Schema.FieldSetMember f : getFields()) 
+            {
+            	query += f.getFieldPath() + ', ';
+        	}
+
+            query += 'Id FROM Account';
+            System.debug('SOQL query' + query);
+            
+            return Database.query(query);
+
+   		 }
+
+        catch(Exception e)
+        {
+            System.debug('Error while fetching' + e.getMessage());
+        }
+
+    return null;
+
+    }
+    
 }

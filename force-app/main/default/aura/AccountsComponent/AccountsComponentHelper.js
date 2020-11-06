@@ -13,13 +13,13 @@
             if (component.isValid() && state === "SUCCESS") {
                 var accounts = response.getReturnValue();
                 component.set("v.accountList", accounts);
-                console.log("accountDetails",component.get("v.accountList"));
+               // console.log("accountDetails",component.get("v.accountList"));
                 component.set("v.check", true);
                
             }  
             else
             {
-                alert('Error is getting data');
+                alert('Aura Parent Error is getting data');
             }          
         });
         $A.enqueueAction(action);
