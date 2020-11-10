@@ -14,7 +14,6 @@ export default class AccountWithoutDataTable extends LightningElement {
         if(data)
         {
             this.fields = data;
-            this.check = true;
             console.log("LWC fields fetched",this.fields);
         }
         else if(error)
@@ -29,6 +28,7 @@ export default class AccountWithoutDataTable extends LightningElement {
         {
             console.log("LWC account fetched",data);
             this.accounts = data;
+            this.check = true;
             
         }
         else if(error)
