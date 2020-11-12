@@ -14,26 +14,21 @@ public with sharing class AccountController {
     	{
             String formattedRecordId = '\''+ recordId + '\'';
         	String query = 'SELECT ';
-
         	for(Schema.FieldSetMember f : getFields()) 
             {
             	query += f.getFieldPath() + ', ';
         	}
-
             query += 'Id FROM Account WHERE Id = '+formattedRecordId;
             System.debug('SOQL query' + query);
             
             return Database.query(query);
-
    		 }
-
         catch(Exception e)
         {
             System.debug('Error while fetching' + e.getMessage());
         }
 
     return null;
-
     }
     
     @AuraEnabled(Cacheable=true)
@@ -59,26 +54,21 @@ public with sharing class AccountController {
     	try
     	{
         	String query = 'SELECT ';
-
         	for(Schema.FieldSetMember f : getFields()) 
             {
             	query += f.getFieldPath() + ', ';
         	}
-
             query += 'Id FROM Account';
             System.debug('SOQL query' + query);
-            
+
             return Database.query(query);
-
    		 }
-
         catch(Exception e)
         {
             System.debug('Error while fetching' + e.getMessage());
         }
-
     return null;
-
     }
     
+
 }

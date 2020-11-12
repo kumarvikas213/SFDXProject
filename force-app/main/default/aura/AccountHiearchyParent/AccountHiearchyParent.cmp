@@ -1,0 +1,19 @@
+<aura:component implements="flexipage:availableForAllPageTypes" controller="AccountsHiearchy" access="global">
+   
+<aura:handler name="init" action="{!c.doInit}" value="{!this}"></aura:handler>
+<aura:attribute name="parentAccounts" type="List"></aura:attribute>
+<aura:attribute name="check" type="boolean" default="false"></aura:attribute>
+
+
+<!-- For all Accounts records in Hiearchical order then go for second approach-->
+<c:AuraAccountHierachy></c:AuraAccountHierachy>
+
+<!--  By Vikas If we fetch hiearchy for particular record id then go for first approach-->
+
+<!-- <aura:if isTrue="{!v.check}" >   
+    <aura:iteration items="{!v.parentAccounts}" var="account">
+        <c:AuraAccountHierachy ltngcurrentRecId="{#account.id}"></c:AuraAccountHierachy>
+    </aura:iteration>
+</aura:if>-->
+
+</aura:component>	

@@ -53,6 +53,7 @@
                         </lightning:layoutItem>
                     </aura:iteration>
                 </lightning:layout>
+
                  <!--One Column Page Layout Record Form Using Aura Component -->
                 <!--  <aura:iteration items="{!v.parentFieldList}" var="fields">
                         <c:AccountChild fieldSet="{#fields}"></c:AccountChild>
