@@ -28,13 +28,11 @@ export default class HierachicalAccount extends LightningElement {
                 }
                 else
                 {
-                    field =
-                            {
+                    field = {
                                 label : data[i],
                                 fieldName: data[i]
                             } 
-                }
-                
+                }                
                 this.columns.push(field);
             }
             console.log('My columns list', this.columns);

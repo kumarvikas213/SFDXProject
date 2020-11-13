@@ -25,14 +25,14 @@
         component.set('v.gridColumns', columns);
         
         
-      // var trecid = component.get('v.ltngcurrentRecId'); //uncomment this line for single record by Vikas
-      var trecid = 'vikas';
+       var trecid = component.get('v.ltngcurrentRecId'); //uncomment this line for single record by Vikas
+     // var trecid = 'vikas';
 
         //var tsObjectName= component.get('v.ltngSobjectname');
         //var tparentFieldAPIname= component.get('v.ltngParentFieldAPIName');
         //var tlabelFieldAPIName= component.get('v.ltngLabelFieldAPIName');
         if(trecid){
-            helper.callToServer(component,"c.getAllAccounts",function(response) {   // call this method "c.findHierarchyData" for single record by vikas
+            helper.callToServer(component,"c.findHierarchyData",function(response) {   // call this method  getAllAccounts"c.findHierarchyData" for single record by vikas
                     var expandedRows = [];
                     var apexResponse = response;
                     var roles = {};
@@ -55,7 +55,7 @@
                     component.set("v.gridData", roles[undefined]._children);
                     console.log('*******treegrid data:'+JSON.stringify(roles[undefined]._children));
                     
-                   // component.set('v.gridExpandedRows', expandedRows); //uncomment this line to expand all rows by vikas
+                   component.set('v.gridExpandedRows', expandedRows); //uncomment this line to expand all rows by vikas
                 }, 
                 {
                     recId: component.get('v.ltngcurrentRecId')

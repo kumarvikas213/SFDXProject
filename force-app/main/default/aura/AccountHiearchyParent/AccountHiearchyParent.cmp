@@ -6,7 +6,7 @@
 
 
 <!-- For all Accounts records in Hiearchical order then go for second approach-->
-<c:AuraAccountHierachy></c:AuraAccountHierachy>
+<c:AuraAccountHierachy ltngcurrentRecId="001N000001z5xmUIAQ"></c:AuraAccountHierachy>
 
 <!--  By Vikas If we fetch hiearchy for particular record id then go for first approach-->
 

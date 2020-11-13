@@ -1,28 +1,20 @@
 public with sharing class AccountsHiearchy {
 
-    public AccountsHiearchy() {}
-
     @AuraEnabled(Cacheable=true)
     public static List<String> getFieldName(){
         List<String> fieldSet = new List<String>();
-        try {
-            
+        
             for(Schema.FieldSetMember f : SObjectType.Account.FieldSets.Account_FieldSet.getFields()) 
             {
             	fieldSet.add(f.getFieldPath());
             }
-           
-        } catch (Exception e) {
-            throw new AuraHandledException(e.getMessage());
-        }
         return fieldSet;
     }
 
     @AuraEnabled(Cacheable=true)
     public static List<sObject> getAllAccounts() 
     {
-    	try
-    	{
+    	
         	String query = 'SELECT ';
         	for(Schema.FieldSetMember f : SObjectType.Account.FieldSets.Account_FieldSet.getFields()) 
             {
@@ -30,14 +22,9 @@ public with sharing class AccountsHiearchy {
         	}
             query += 'id,parentId FROM Account ORDER BY ParentId Limit 1000';
             System.debug('SOQL query' + query);
-            
+    
             return Database.query(query);
-   		 }
-        catch(Exception e)
-        {
-            System.debug('Error while fetching' + e.getMessage());
-        }
-    return null;
+   		 
     }
 
     @AuraEnabled
