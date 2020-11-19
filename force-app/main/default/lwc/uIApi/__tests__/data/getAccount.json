@@ -1,0 +1,82 @@
+{
+    "apiName": "Account",
+    "childRelationships": {},
+    "id": "001N000001z5fQ5IAI",
+    "lastModifiedById": "005N0000009N5pdIAC",
+    "lastModifiedDate": "2020-11-18T09:17:29.000Z",
+    "recordTypeId": "012000000000000AAA",
+    "recordTypeInfo": null,
+    "systemModstamp": "2020-11-18T09:17:29.000Z",
+    "fields": {
+      "Industry": {
+        "displayValue": "Communications",
+        "value": "Communications"
+      },
+      "Name": {
+        "displayValue": null,
+        "value": "Vikas Kumar"
+      },
+      "AccountNumber": {
+        "displayValue": null,
+        "value": "65875859998"
+      },
+      "AnnualRevenue": {
+        "displayValue": "$76,568",
+        "value": 76568
+      },
+      "BillingStreet": {
+        "displayValue": null,
+        "value": "9379, Near Rahon Road"
+      },
+      "CreatedBy": {
+        "displayValue": "User User",
+        "value": {
+          "apiName": "User",
+          "childRelationships": {},
+          "id": "005N0000009N5pdIAC",
+          "lastModifiedById": "005N0000009N5pdIAC",
+          "lastModifiedDate": "2020-11-18T10:33:05.000Z",
+          "recordTypeId": null,
+          "recordTypeInfo": null,
+          "systemModstamp": "2020-11-18T10:33:05.000Z",
+          "fields": {
+            "Name": {
+              "displayValue": null,
+              "value": "User User"
+            }
+          }
+        }
+      },
+      "CreatedDate": {
+        "displayValue": "11/3/2020, 12:38 AM",
+        "value": "2020-11-03T08:38:09.000Z"
+      },
+      "Owner": {
+        "displayValue": "User User",
+        "value": {
+          "apiName": "User",
+          "childRelationships": {},
+          "id": "005N0000009N5pdIAC",
+          "lastModifiedById": "005N0000009N5pdIAC",
+          "lastModifiedDate": "2020-11-18T10:33:05.000Z",
+          "recordTypeId": null,
+          "recordTypeInfo": null,
+          "systemModstamp": "2020-11-18T10:33:05.000Z",
+          "fields": {
+            "Name": {
+              "displayValue": null,
+              "value": "User User"
+            }
+          }
+        }
+      },
+      "Phone": {
+        "displayValue": null,
+        "value": "765879898"
+      },
+      "Website": {
+        "displayValue": null,
+        "value": "xyzgh.co.in"
+      }
+    }
+  }
