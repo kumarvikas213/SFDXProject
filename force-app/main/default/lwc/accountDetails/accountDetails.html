@@ -17,16 +17,24 @@
      <!-- Two Column Layout Lightning WEB Record Page -->
     <lightning-record-view-form record-id={recordId} object-api-name="Account">
         <lightning-layout horizontal-align="space" vertical-align="center" multiple-rows="true">
-            <template if:true={check}>
+            
+            <template if:true={fields}>
                     <template for:each={fields} for:item="field">
-                        <lightning-layout-item flexibility="no-flex" alignment-bump="right" size="12" small-device-size="6" medium-device-size="6" large-device-size="6" key={recordId}>
-                            <lightning-output-field  field-name={field}></lightning-output-field>
+                        <lightning-layout-item flexibility="no-flex" alignment-bump="right" size="12" small-device-size="6" medium-device-size="6" large-device-size="6" key={field}>
+                            <lightning-output-field  field-name={field}></lightning-output-field> 
                         </lightning-layout-item>
                     </template>
         </template>
+       
+        <template if:true={error}>
+            <div class="slds-m-around_medium error">
+                {error}
+            </div>
+        </template>
+
         </lightning-layout>
     </lightning-record-view-form>
      
-
+    
     </lightning-card>
 </template>

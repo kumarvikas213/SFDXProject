@@ -4,7 +4,7 @@ import getFieldName from '@salesforce/apex/AccountController.getFieldName';
 export default class AccountDetails extends LightningElement {
 
     @track fields;
-    @track check=false;
+    @track error;
     @api recordId;
    
     @wire(getFieldName) getFields({error,data})
@@ -12,12 +12,13 @@ export default class AccountDetails extends LightningElement {
         if(data)
         {
             this.fields = data;
-            this.check = true;
-            console.log("LWC fields fetched",this.fields);
+            console.log("LWC fields fetched",JSON.stringify(this.fields));
+            this.error = undefined;
         }
         else if(error)
         {
-            this.fields = '';
+            this.error = error;
+            this.fields = undefined;
         }
     }
 

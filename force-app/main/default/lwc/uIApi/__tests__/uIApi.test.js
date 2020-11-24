@@ -25,7 +25,7 @@ describe('c-ui-api',()=>{
         const element = createElement('c-ui-api',{
             is:UIApi
         })
-        document.body.appendChild(element)
+        document.body.appendChild(element);
     })
 
     test('record data is available',()=>{
@@ -43,6 +43,16 @@ describe('c-ui-api',()=>{
             expect(pElem.textContent).toContain('Account Number: 65875859998');
             expect(pElem.textContent).toContain('Created By:User User');
             expect(pElem.textContent).toContain('Created DATE: 11/3/2020, 12:38 AM');
+        })
+    })
+
+    
+    test('error in fetching record data',()=>{
+        const element = document.querySelector('c-ui-api');
+        getAccountAdaptor.error()
+        return Promise.resolve().then(()=>{
+            const errorElem = element.shadowRoot.querySelector('.error');
+            expect(errorElem.textContent).not.toBeNull();
         })
     })
 

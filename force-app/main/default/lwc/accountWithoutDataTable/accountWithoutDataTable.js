@@ -8,17 +8,20 @@ export default class AccountWithoutDataTable extends LightningElement {
     @track accounts;
     @track check=false;
     @api recordId;
+    @track error;
    
     @wire(getFieldName) getFields({error,data})
     {
         if(data)
         {
             this.fields = data;
-            console.log("LWC fields fetched",this.fields);
+            console.log("LWC fields fetched",JSON.stringify(this.fields));
+            this.error = undefined;
         }
         else if(error)
         {
-            this.fields = '';
+            this.fields = undefined;
+            this.error = error;
         }
     }
 
@@ -26,14 +29,16 @@ export default class AccountWithoutDataTable extends LightningElement {
     {
         if(data)
         {
-            console.log("LWC account fetched",data);
             this.accounts = data;
+            console.log("LWC account fetched",JSON.stringify(this.accounts));
             this.check = true;
+            this.error = undefined;
             
         }
         else if(error)
         {
-            this.accounts = '';
+            this.accounts = undefined;
+            this.error = error;
         }
     }
 }

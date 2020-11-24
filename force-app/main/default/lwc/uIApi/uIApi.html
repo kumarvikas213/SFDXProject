@@ -1,8 +1,8 @@
 <template>
     <lightning-card title="UI-Api">
-       
-    <template if:true={account.data}>
-        <div class="slds-m-around_medium accountRecord">
+    
+    <template if:true={accountRecord}>
+        <div class="slds-m-around_medium accountRecord ">
             <p>Account Name: {name}</p>
             <p>Industry: {industry}</p>
             <p>Phone: {phone}</p>
@@ -13,6 +13,12 @@
             <p>Account Number: {accountNumber}</p>
             <p>Created By:{createdBy}</p>
             <p>Created DATE: {createdDate}</p>
+        </div>
+    </template>
+   
+    <template if:true={error}>
+        <div class="slds-m-around_medium error">
+            {error}
         </div>
     </template>
 

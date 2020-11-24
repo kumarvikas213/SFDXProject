@@ -13,64 +13,79 @@ import CREATED_DATE_FIELD from '@salesforce/schema/Account.CreatedDate';
 
 export default class UIApi extends LightningElement {
 
-   @track modifyDate;
+   @track accountRecord;
+   @track error;
 
     @wire(getRecord, { recordId: '001N000001z5fQ5IAI', fields: [NAME_FIELD, INDUSTRY_FIELD], optionalFields: [PHONE_FIELD, OWNER_NAME_FIELD,BILLING_ADDRESS_FIELD,ANNUAL_REVENUE_FIELD,ACCOUNT_NO_FIELD,WEBSITE_FIELD,CREATED_DATE_FIELD,CREATED_BY_FIELD] })
-    account;
+    account({data,error}){
+        if(data)
+        {
+            console.log('my data is '+this.accountRecord);
+            this.accountRecord = data;
+            this.error = undefined;
+
+        }
+        else if(error)
+        {
+            this.error = error;
+            this.accountRecord = undefined;
+        }
+    }
+
 
      get name() {
-        return getFieldValue(this.account.data, NAME_FIELD);
+        return getFieldValue(this.accountRecord, NAME_FIELD);
     }
 
     get phone() {
-        return getFieldValue(this.account.data, PHONE_FIELD);
+        return getFieldValue(this.accountRecord, PHONE_FIELD);
     }
 
     get industry(){
-        return getFieldValue(this.account.data, INDUSTRY_FIELD);
+        return getFieldValue(this.accountRecord, INDUSTRY_FIELD);
     }
     
     get owner() {
-        return getFieldValue(this.account.data, OWNER_NAME_FIELD);
+        return getFieldValue(this.accountRecord, OWNER_NAME_FIELD);
     }
 
     get billingAddress()
         {
-            return getFieldValue(this.account.data,BILLING_ADDRESS_FIELD);
+            return getFieldValue(this.accountRecord,BILLING_ADDRESS_FIELD);
         }
     
     get annualRevenue()
         {
-            return getFieldDisplayValue(this.account.data,ANNUAL_REVENUE_FIELD);
+            return getFieldDisplayValue(this.accountRecord,ANNUAL_REVENUE_FIELD);
         }
 
     get accountNumber()
         {
-            return getFieldValue(this.account.data,ACCOUNT_NO_FIELD);
+            return getFieldValue(this.accountRecord,ACCOUNT_NO_FIELD);
         }
 
     get website()
         {
-            return getFieldValue(this.account.data,WEBSITE_FIELD);
+            return getFieldValue(this.accountRecord,WEBSITE_FIELD);
         }
 
     get createdBy()
         {
-            console.log("ui api",this.account.data);
-            console.log('date is:'+ this.account.data.lastModifiedDate);
-            return getFieldValue(this.account.data,CREATED_BY_FIELD);
+            console.log("ui api",this.accountRecord);
+            console.log('date is:'+ this.accountRecord.lastModifiedDate);
+            return getFieldValue(this.accountRecord,CREATED_BY_FIELD);
         }
 
     get createdDate()
         {
-            return getFieldDisplayValue(this.account.data, CREATED_DATE_FIELD);
+            return getFieldDisplayValue(this.accountRecord, CREATED_DATE_FIELD);
         }
 
-        renderedCallback()
-        {
-            if(this.account && this.account.data)
-            {
-                console.log("mock data",JSON.stringify(this.account.data));
-            }
-        }
+        // renderedCallback()
+        // {
+        //     if(this.accountRecord && this.accountRecord)
+        //     {
+        //         console.log("mock data",JSON.stringify(this.accountRecord));
+        //     }
+        // }
 }

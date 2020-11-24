@@ -1,0 +1,30 @@
+[
+    {
+      "label": "Name",
+      "fieldName": "Name"
+    },
+    {
+      "label": "AccountNumber",
+      "fieldName": "AccountNumber"
+    },
+    {
+      "label": "Industry",
+      "fieldName": "Industry"
+    },
+    {
+      "label": "Description",
+      "fieldName": "Description"
+    },
+    {
+      "label": "AnnualRevenue",
+      "fieldName": "AnnualRevenue"
+    },
+    {
+      "label": "Website",
+      "fieldName": "Website"
+    },
+    {
+      "label": "Phone",
+      "fieldName": "Phone"
+    }
+  ]

@@ -1,9 +1,12 @@
 <template>
-    <template if:true={check}>
     <lightning-card title="Accounts DataTable">
+    <template if:true={check}>
         <lightning-datatable data={data} columns={columns} key-field="Id">
        </lightning-datatable>
-    </lightning-card>
     </template>
 
+    <template if:true={error}>
+        <div class="error">{error}</div>
+    </template>
+</lightning-card>
 </template>

@@ -4,18 +4,21 @@ import getAccounts from '@salesforce/apex/AccountController.getAccounts';
 
 export default class AccountsDataTable extends LightningElement {
 
-   @track check=false;
+   @track error;
     @track data;
+    @track check=false;
     @wire(getAccounts) getAccountsData({error,data})
     {
         if(data)
         {
             this.data = data;
-            console.log("LWC account fetched",this.data);  
+            console.log("Accounts DataTable record", JSON.stringify(this.data)); 
         }
         else if(error)
         {
-            this.data = '';
+            this.error = error;
+            this.check = false;
+            this.data = undefined;
         }
     }
 
@@ -24,7 +27,7 @@ export default class AccountsDataTable extends LightningElement {
     {
         if(data)
         {
-            console.log("LWC fields fetched",data.length);
+            console.log("Accounts DataTable fields",JSON.stringify(data));
             for(let i=0; i< data.length;i++)
             {
                 let field =
@@ -34,13 +37,15 @@ export default class AccountsDataTable extends LightningElement {
                 } 
                 this.columns.push(field);
             }
-            console.log('My columns list', this.columns);
+            console.log('DataTable formatted columns', JSON.stringify(this.columns));
             this.check = true;
         }
         else if(error)
         {
+            this.error = error;
+            this.check = false;
             console.log('error in fetching fieldsNames');
-            this.columns = '';
+            this.columns = undefined;
         }
     }
 

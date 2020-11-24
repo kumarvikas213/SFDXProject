@@ -5,7 +5,6 @@ export default class AccountChildLWC extends LightningElement {
     
     @api fieldName;
     @api account;
-    @track data;
 
     get accountData()
     {
