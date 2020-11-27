@@ -1,0 +1,13 @@
+<template>
+    <lightning-card title="Create Record(Contact) by UIRecordAPI">            
+        <lightning-layout> 
+            <lightning-layout-item flexibility="auto" padding="around-small">
+                <lightning-input label="First Name" onchange={handleChange}></lightning-input>
+                <lightning-input label="Last Name" onchange={handleChange}></lightning-input>
+                <lightning-input label="Email" onchange={handleChange} class="slds-m-bottom_x-small"></lightning-input>
+                <lightning-button label="Create Record" variant="brand" onclick={createContact}></lightning-button>
+            </lightning-layout-item>
+        </lightning-layout> 
+    </lightning-card>
+    
+</template>

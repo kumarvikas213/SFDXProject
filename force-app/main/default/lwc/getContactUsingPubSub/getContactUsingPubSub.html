@@ -1,0 +1,22 @@
+<template>
+    <lightning-card title="Details of Contact Saved">
+        <template if:true={message}>
+            <div class="c-container">
+                <lightning:layout>
+                    <lightning:layoutItem padding="around-small">
+                        <div class="custom-box">Record ID : {message.recordId}</div>
+                    </lightning:layoutItem>
+                    <lightning:layoutItem padding="around-small">
+                        <div class="custom-box">FirstName : {message.FirstName}</div>
+                    </lightning:layoutItem>
+                    <lightning:layoutItem padding="around-small">
+                        <div class="custom-box">LastName : {message.LastName}</div>
+                    </lightning:layoutItem>
+                    <lightning:layoutItem padding="around-small">
+                        <div class="custom-box">Email ID : {message.EmailId}</div>
+                    </lightning:layoutItem>
+                </lightning:layout>
+            </div>
+        </template>
+    </lightning-card>
+</template>

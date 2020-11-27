@@ -1,0 +1,17 @@
+<template>
+    <lightning-card title="LMS lightning web component">
+        <div class="slds-m-around_medium">
+            <lightning-input type="text" label="Enter publish message" onkeyup={inputHandler}>
+            </lightning-input>
+        </div>
+        <div class="slds-m-around_medium">
+            <lightning-button label="Publish" onclick={publishMessage}></lightning-button>
+            <lightning-button label="Subscribe" onclick={subscribeMessage}></lightning-button>
+            <lightning-button label="Unsubscribe" onclick={unsubscribeMessage}></lightning-button>
+        </div>
+        <div class="slds-m-around_medium">
+            <p>Message Received</p>
+            <lightning-formatted-text value={receivedMessage}></lightning-formatted-text>
+        </div>
+    </lightning-card>
+</template>
